@@ -1,0 +1,99 @@
+<!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+          <header>
+            <h2 class="h2 article-title">Contact</h2>
+          </header>
+
+          <section class="mapbox" data-mapbox>
+            <figure>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.1622667628976!2d76.86076524362488!3d8.58039229497899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf7ce93dfa33%3A0xa7fe3f2d12c13f90!2sDotspace%20Business%20Park!5e0!3m2!1sen!2sin!4v1658463535166!5m2!1sen!2sin"
+                width="400"
+                height="300"
+                loading="lazy"
+              ></iframe>
+            </figure>
+          </section>
+
+          <section class="contact-form">
+            <h3 class="h3 form-title">Contact Form</h3>
+
+            <form action="" id="submit-form" data-form>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="fullname"
+                  class="form-input"
+                  placeholder="Full name"
+                  required
+                  data-form-input
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Email address"
+                  required
+                  data-form-input
+                />
+              </div>
+
+              <textarea
+                name="message"
+                class="form-input"
+                placeholder="Your Message"
+                required
+                data-form-input
+              ></textarea>
+
+              <button class="form-btn" type="submit" disabled data-form-btn>
+                <ion-icon name="paper-plane"></ion-icon>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <!--
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!--
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script>
+      $("#submit-form").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+          url: "https://script.google.com/macros/s/AKfycbza_EuZuC7BJ7vwZ-Jp_1LeLC_VWImHNTriMiNJLg/exec",
+          data: $("#submit-form").serialize(),
+          method: "post",
+          success: function (response) {
+            alert("Form submitted successfully");
+            window.location.reload();
+            //window.location.href="https://google.com"
+          },
+          error: function (err) {
+            alert("Something Error");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
